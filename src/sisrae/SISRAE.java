@@ -9,6 +9,7 @@ package sisrae;
 /**
  *
  * @author Rick
+ * Clase integradora y principal para cargar el SISRAE
  */
 public class SISRAE {
 

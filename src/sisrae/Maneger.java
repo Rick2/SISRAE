@@ -9,9 +9,8 @@ package sisrae;
 /**
  *
  * @author Rick
- * En esta clase se trabajará la parte de la conexion del sistema con la base de
- * datos con acceso único desde la clase Maneger.
+ * En esta clase se generara la pantalla propia del administrador previamente autenticado
  */
-public class Conection {
+public class Maneger {
     
 }

@@ -9,9 +9,10 @@ package sisrae;
 /**
  *
  * @author Rick
- * En esta clase se trabajará la parte de la conexion del sistema con la base de
- * datos con acceso único desde la clase Maneger.
+ * Esta es la clase que se encargará de mostrar la pantalla que manejarán
+ * los edecanes o personal autorizado para capturar a los asistentes.
+ * 
  */
-public class Conection {
+public class Conference {
     
 }
