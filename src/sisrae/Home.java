@@ -23,8 +23,10 @@ public class Home extends JFrame{
     //JFrame home=new JFrame("Sistema de Registro de Asistencia a Eventos (SISRAE)");
     JDesktopPane dp=new JDesktopPane();
     JInternalFrame inicio = new JInternalFrame();
+    
     JPanel p1_if=new JPanel(new FlowLayout()), //panel 1 del Internal Frame
             p2=new JPanel(new FlowLayout(FlowLayout.LEADING));
+    
     JPanel p2_1=new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel p2_2=new JPanel(new FlowLayout(FlowLayout.RIGHT));
     
@@ -34,7 +36,7 @@ public class Home extends JFrame{
     JMenuBar menu=new JMenuBar();
     JMenu archivo=new JMenu("Archivo"),
             sesion=new JMenu("Sesion"),
-            eventos=new JMenu("Ingresar");
+            evento=new JMenu("Ingresar");
     
     JMenuItem cargar_ar=new JMenuItem("Cargar Asistencias"),
             guardar_ar=new JMenuItem("Guardar Asistencias"),
@@ -84,13 +86,13 @@ public class Home extends JFrame{
         sesion.add(cambiar_se);
         sesion.add(cerrar_se);
         
-        eventos.add(crear_ev);
-        eventos.add(cargar_ev);
-        eventos.add(guardar_ev);
+        evento.add(crear_ev);
+        evento.add(cargar_ev);
+        evento.add(guardar_ev);
         //Agregar Menus a la BARRA de MENUS
         menu.add(archivo);
         menu.add(sesion);
-        menu.add(eventos);
+        menu.add(evento);
         
         inicio.add(p1_if); //Se agrega el panel de trabajo al InternalFrame
         inicio.setVisible(true);//Se hace visible el internalFrame
@@ -126,12 +128,15 @@ public class Home extends JFrame{
             switch (id) {
                 case 1:
                     System.out.println("Cargar Asistencias");
+                    
                     break;
                 case 2:
                     System.out.println("Guardar Asistencias");
+                    
                     break;
                 case 3:
                     System.out.println("salir archivo");
+                    
                     break;
                 case 4:
                     System.out.println("Iniciar sesion");

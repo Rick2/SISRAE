@@ -1,0 +1,4 @@
+Repositorio esta en https://github.com/Rick2/SISRAE
+
+Agregar archivos nuevos
+$git add .
