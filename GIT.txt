@@ -1,4 +1,11 @@
+
+LA GUIA SENCILLA PARA EL USO DEL GIT
+http://rogerdudler.github.io/git-guide/index.es.html
+
+
+
 Repositorio esta en https://github.com/Rick2/SISRAE
 
 Agregar archivos nuevos
 $git add .
+
