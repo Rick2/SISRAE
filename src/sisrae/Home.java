@@ -36,10 +36,11 @@ public class Home extends JFrame{
     JMenuBar menu=new JMenuBar();
     JMenu archivo=new JMenu("Archivo"),
             sesion=new JMenu("Sesion"),
-            evento=new JMenu("Ingresar");
+            evento=new JMenu("Eventos"),
+            asistencia=new JMenu("Asistencias y Participantes");
     
-    JMenuItem cargar_ar=new JMenuItem("Cargar Asistencias"),
-            guardar_ar=new JMenuItem("Guardar Asistencias"),
+    JMenuItem cargar_ar=new JMenuItem("Help me!"),
+            guardar_ar=new JMenuItem("Imprimir"),
             salir_ar=new JMenuItem("Salir"),
             
             iniciar_se=new JMenuItem("Iniciar sesion"),
@@ -48,7 +49,12 @@ public class Home extends JFrame{
             
             crear_ev=new JMenuItem("Nuevo evento"),
             cargar_ev=new JMenuItem("Cargar evento"),
-            guardar_ev=new JMenuItem("Guardar evento");
+            guardar_ev=new JMenuItem("Cancelar evento"),
+            
+            registrar_as=new JMenuItem("Registrar nuevo participante"),
+            modificar_as=new JMenuItem("Modificar participante"),
+            eliminar_as=new JMenuItem("Eliminar participante"),
+            asistencia_as=new JMenuItem("Registrar asistencias");
             
     Clock reloj=new Clock();
     
@@ -61,7 +67,7 @@ public class Home extends JFrame{
         setLayout(new BorderLayout());
         setIconImage(icono); //Cambio el icono de java por el de ADEC
         getContentPane().add(dp);//Agrego el desktopPane al Contenedor principal
-        archivo.addSeparator();
+        //archivo.addSeparator();
         
         //AGREGAR LISTENERS A ITEMS
         cargar_ar.addActionListener(new Manejador(1));
@@ -76,6 +82,10 @@ public class Home extends JFrame{
         guardar_ev.addActionListener(new Manejador(8));
         cargar_ev.addActionListener(new Manejador(9));
         
+        registrar_as.addActionListener(new Manejador(10));
+        modificar_as.addActionListener(new Manejador(11));
+        eliminar_as.addActionListener(new Manejador(12));
+        asistencia_as.addActionListener(new Manejador(13));
         
         //agregar submenus a MENUS
         archivo.add(cargar_ar);
@@ -89,10 +99,18 @@ public class Home extends JFrame{
         evento.add(crear_ev);
         evento.add(cargar_ev);
         evento.add(guardar_ev);
+        
+        asistencia.add(registrar_as);
+        asistencia.add(modificar_as);
+        asistencia.add(eliminar_as);
+        asistencia.addSeparator();
+        asistencia.add(asistencia_as);
+        
         //Agregar Menus a la BARRA de MENUS
         menu.add(archivo);
         menu.add(sesion);
         menu.add(evento);
+        menu.add(asistencia);
         
         inicio.add(p1_if); //Se agrega el panel de trabajo al InternalFrame
         inicio.setVisible(true);//Se hace visible el internalFrame
@@ -127,11 +145,12 @@ public class Home extends JFrame{
         public void actionPerformed(ActionEvent e) {
             switch (id) {
                 case 1:
-                    System.out.println("Cargar Asistencias");
+                    System.out.println("HELP");
                     
                     break;
                 case 2:
-                    System.out.println("Guardar Asistencias");
+                    System.out.println("Imprimir");
+                    JOptionPane.showMessageDialog(null, "Esta es una version de prueba.\n\nPara desbloquear esta opcion, favor de comprar la licencia por solo ");
                     
                     break;
                 case 3:
@@ -157,6 +176,12 @@ public class Home extends JFrame{
                 case 9:
                     System.out.println("Cargar evento");
                     break;
+                case 10:
+                    System.out.println("");
+                    break;
+                case 11:
+                    break;
+                    
                 default:
                     throw new AssertionError();
             }

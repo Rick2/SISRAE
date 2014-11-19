@@ -1,0 +1,7 @@
+EL PROGRAMA DE FORMA BÁSICA DEBE PODER:
+
+- Ingresar nuevos participantes
+- Ingresar nuevos eventos
+- Ingresar nuevos usuarios
+- Capacidad e logear
+- Capacidad para revisar asistencias

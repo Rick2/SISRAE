@@ -13,4 +13,16 @@ package sisrae;
  */
 public class Maneger {
     
+    String tabla;
+    String campos;
+    
+    
+    
+    void insertar(String tabla, String valores){
+        String ins="INSERT INTO";
+        
+        
+    }
+    
+    
 }
