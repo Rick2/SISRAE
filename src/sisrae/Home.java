@@ -37,11 +37,13 @@ public class Home extends JFrame{
     JMenu archivo=new JMenu("Archivo"),
             sesion=new JMenu("Sesion"),
             evento=new JMenu("Eventos"),
-            asistencia=new JMenu("Asistencias y Participantes");
+            asistencia=new JMenu("Asistencias y Participantes"),
+            listados=new JMenu("Generacion de listados");
     
     JMenuItem cargar_ar=new JMenuItem("Help me!"),
             guardar_ar=new JMenuItem("Imprimir"),
             salir_ar=new JMenuItem("Salir"),
+            respaldo_ar=new JMenuItem("Generacion del Respaldo"),
             
             iniciar_se=new JMenuItem("Iniciar sesion"),
             cerrar_se=new JMenuItem("Cerrar sesion"),
@@ -73,6 +75,7 @@ public class Home extends JFrame{
         cargar_ar.addActionListener(new Manejador(1));
         guardar_ar.addActionListener(new Manejador(2));
         salir_ar.addActionListener(new Manejador(3));
+        respaldo_ar.addActionListener(new Manejador(15));
         
         iniciar_se.addActionListener(new Manejador(4));
         cambiar_se.addActionListener(new Manejador(5));
@@ -86,6 +89,7 @@ public class Home extends JFrame{
         modificar_as.addActionListener(new Manejador(11));
         eliminar_as.addActionListener(new Manejador(12));
         asistencia_as.addActionListener(new Manejador(13));
+        listados.addActionListener(new Manejador(14));
         
         //agregar submenus a MENUS
         archivo.add(cargar_ar);
@@ -111,7 +115,10 @@ public class Home extends JFrame{
         menu.add(sesion);
         menu.add(evento);
         menu.add(asistencia);
+        menu.add(listados);
         
+        
+        //
         inicio.add(p1_if); //Se agrega el panel de trabajo al InternalFrame
         inicio.setVisible(true);//Se hace visible el internalFrame
 
@@ -141,6 +148,20 @@ public class Home extends JFrame{
         Manejador(int id){
             this.id=id;
         }
+        
+        
+        
+        
+        /**
+         * Este es la forma para agregar el panel de cada quien al internal frame.
+         * inicio.remove(p1_if);
+                    JPanel p=new JPanel();
+                    JLabel label=new JLabel("Para iniciar sesion");
+                    p.add(label);
+                    inicio.add(p);
+         * @param e 
+         */
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             switch (id) {
@@ -177,11 +198,23 @@ public class Home extends JFrame{
                     System.out.println("Cargar evento");
                     break;
                 case 10:
-                    System.out.println("");
+                    System.out.println("Registrar Asistente");
                     break;
                 case 11:
+                    System.out.println("Modificar Asistente");
                     break;
-                    
+                case 12:
+                    System.out.println("Eliminar Asistente");
+                    break;
+                case 13:
+                    System.out.println("Asistencias (Asistió o no)");
+                    break;
+                case 14:
+                    System.out.println("Generacion de Listados");
+                    break;
+                case 15:
+                    System.out.println("Generacion del Respaldo");
+                    break;
                 default:
                     throw new AssertionError();
             }
