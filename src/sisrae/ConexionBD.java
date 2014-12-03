@@ -25,10 +25,10 @@ public class ConexionBD {
     /**
      * No muevan nada del constructor 
      */
-    ConexionBD(){
+    ConexionBD(String BD,String user,String password){
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conexion= (Connection) DriverManager.getConnection("JDBC:MySql://localhost/sisrae","root","Ercr.1123");
+            conexion= (Connection) DriverManager.getConnection("JDBC:MySql://localhost/"+BD,user,password);
             stmt=conexion.createStatement();
             //stmt.execute("INSERT INTO gente VALUES ('','')");
             
@@ -99,7 +99,7 @@ public class ConexionBD {
     
     
     public static void main(String[] args) {
-        new ConexionBD();
+        new ConexionBD("SISRAE","root","Ercr.1123");
     }
     
 }

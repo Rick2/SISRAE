@@ -35,7 +35,7 @@ public class CrearArchivoR {
             csvOutput.write("hora salida");                       
             csvOutput.write("Calificacion");
             csvOutput.endRecord();
-            ConexionBD c=new ConexionBD();
+            ConexionBD c=new ConexionBD("sisrae","root","Ercr.1123");
             String cons="select * from registro;", resul=" ";
             ResultSet r=c.consulta(cons);
            
