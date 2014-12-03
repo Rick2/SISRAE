@@ -97,7 +97,37 @@ public class ConexionBD {
         return rs;
     }
     
+    /**
+     * Este metodo lo pueden utilizar para obtener la conexion que se ha establecido previamente y no tener que realizar una nueva conexion cada ves
+     * que vallan a realizar una accion. 
+     * Recuerden que para despues poder realizar una consulta habrá que crear un objeto del tipo Statement de la siguiente forma:
+     * stmt=conexion.createStatement();
+     * y despues para ejecutar una insercion abran que usar la sentencia:
+     * stmt.execute("Consulta");
+     * 
+     * o
+     * 
+     * stmt.executeQuery("query");
+     * 
+     * o simplemente usar los metodos aqui descritos.
+     * @return 
+     */
+    Connection conseguirConexion(){
+        return conexion;
+    }
     
+    /**
+     * 
+     * @param stmt 
+     */
+    void enviarSesionSentencia(Connection conexion){
+        try {
+            stmt=conexion.createStatement();
+        } catch (SQLException ex) {
+            System.out.println("ERROR EN LA CREACION DE LAS SENTENCIAS");
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void main(String[] args) {
         new ConexionBD("SISRAE","root","Ercr.1123");
     }
