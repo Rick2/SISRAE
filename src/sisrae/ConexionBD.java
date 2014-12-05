@@ -11,6 +11,7 @@ import java.sql.*;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,6 +59,28 @@ public class ConexionBD {
         }
     }
     
+    ConexionBD(){
+        JOptionPane.showMessageDialog(null, "\"HA ENTRADO A UNA CONEXION NO SEGURA...\"");
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            conexion= (Connection) DriverManager.getConnection("JDBC:MySql://localhost/sisrae","root","root");
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            stmt=conexion.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     void insertar(String sql){
         try {
             stmt.execute(sql);

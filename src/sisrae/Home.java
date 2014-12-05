@@ -19,6 +19,7 @@ import javax.swing.*;
  * nuevo o en curso
  */
 public class Home extends JFrame{
+    JFrame jf=this;
     
     //JFrame home=new JFrame("Sistema de Registro de Asistencia a Eventos (SISRAE)");
     JDesktopPane dp=new JDesktopPane();
@@ -38,7 +39,9 @@ public class Home extends JFrame{
             sesion=new JMenu("Sesion"),
             evento=new JMenu("Eventos"),
             asistencia=new JMenu("Asistencias y Participantes"),
-            listados=new JMenu("Generacion de listados");
+            listados=new JMenu("Generacion de listados"),
+            criterios=new JMenu("Criterios de evaluacion");
+    
     
     JMenuItem cargar_ar=new JMenuItem("Help me!"),
             guardar_ar=new JMenuItem("Imprimir"),
@@ -56,7 +59,9 @@ public class Home extends JFrame{
             registrar_as=new JMenuItem("Registrar nuevo participante"),
             modificar_as=new JMenuItem("Modificar participante"),
             eliminar_as=new JMenuItem("Eliminar participante"),
-            asistencia_as=new JMenuItem("Registrar asistencias");
+            asistencia_as=new JMenuItem("Registrar asistencias"),
+    
+            generar_asis=new JMenuItem("Listado de reconocimientos");
             
     Clock reloj=new Clock();
     
@@ -90,11 +95,16 @@ public class Home extends JFrame{
         eliminar_as.addActionListener(new Manejador(12));
         asistencia_as.addActionListener(new Manejador(13));
         listados.addActionListener(new Manejador(14));
+        criterios.addActionListener(new Manejador(15));
+        
+        generar_asis.addActionListener(new Manejador(16));
         
         //agregar submenus a MENUS
         archivo.add(cargar_ar);
         archivo.add(guardar_ar);
         archivo.add(salir_ar);
+        archivo.add(generar_asis);
+        
         
         sesion.add(iniciar_se);
         sesion.add(cambiar_se);
@@ -116,7 +126,7 @@ public class Home extends JFrame{
         menu.add(evento);
         menu.add(asistencia);
         menu.add(listados);
-        
+        menu.add(criterios);
         
         //
         inicio.add(p1_if); //Se agrega el panel de trabajo al InternalFrame
@@ -184,18 +194,26 @@ public class Home extends JFrame{
                     break;
                 case 5:
                     System.out.println("Cambiar sesion");
+                    
                     break;
                 case 6:
                     System.out.println("Cerrar sesion");
+                    
                     break;
                 case 7:
                     System.out.println("Crear evento");
+                    new CRCrearEventos(jf).setVisible(true);
+                    setVisible(false);
                     break;
                 case 8:
-                    System.out.println("Guardar evento");
+                    System.out.println("Cancelar evento");
+                    new CRCancelarEvento(jf).setVisible(true);
+                    jf.setVisible(false);
                     break;
                 case 9:
-                    System.out.println("Cargar evento");
+                    System.out.println("Modificar evento");
+                    new CRModificarEvento(jf).setVisible(true);
+                    jf.setVisible(false);
                     break;
                 case 10:
                     System.out.println("Registrar Asistente");
@@ -214,6 +232,9 @@ public class Home extends JFrame{
                     break;
                 case 15:
                     System.out.println("Generacion del Respaldo");
+                    break;
+                case 16:
+                    Listado_Resultados listado=new Listado_Resultados();
                     break;
                 default:
                     throw new AssertionError();
